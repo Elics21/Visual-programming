@@ -1,0 +1,14 @@
+C:\Users\pawsh\OneDrive\Рабочий стол\визуалка\lab1-vis\lab1-vis\bin\Debug\net8.0\lab1-vis.exe
+C:\Users\pawsh\OneDrive\Рабочий стол\визуалка\lab1-vis\lab1-vis\bin\Debug\net8.0\lab1-vis.deps.json
+C:\Users\pawsh\OneDrive\Рабочий стол\визуалка\lab1-vis\lab1-vis\bin\Debug\net8.0\lab1-vis.runtimeconfig.json
+C:\Users\pawsh\OneDrive\Рабочий стол\визуалка\lab1-vis\lab1-vis\bin\Debug\net8.0\lab1-vis.dll
+C:\Users\pawsh\OneDrive\Рабочий стол\визуалка\lab1-vis\lab1-vis\bin\Debug\net8.0\lab1-vis.pdb
+C:\Users\pawsh\OneDrive\Рабочий стол\визуалка\lab1-vis\lab1-vis\obj\Debug\net8.0\lab1-vis.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pawsh\OneDrive\Рабочий стол\визуалка\lab1-vis\lab1-vis\obj\Debug\net8.0\lab1-vis.AssemblyInfoInputs.cache
+C:\Users\pawsh\OneDrive\Рабочий стол\визуалка\lab1-vis\lab1-vis\obj\Debug\net8.0\lab1-vis.AssemblyInfo.cs
+C:\Users\pawsh\OneDrive\Рабочий стол\визуалка\lab1-vis\lab1-vis\obj\Debug\net8.0\lab1-vis.csproj.CoreCompileInputs.cache
+C:\Users\pawsh\OneDrive\Рабочий стол\визуалка\lab1-vis\lab1-vis\obj\Debug\net8.0\lab1-vis.dll
+C:\Users\pawsh\OneDrive\Рабочий стол\визуалка\lab1-vis\lab1-vis\obj\Debug\net8.0\refint\lab1-vis.dll
+C:\Users\pawsh\OneDrive\Рабочий стол\визуалка\lab1-vis\lab1-vis\obj\Debug\net8.0\lab1-vis.pdb
+C:\Users\pawsh\OneDrive\Рабочий стол\визуалка\lab1-vis\lab1-vis\obj\Debug\net8.0\lab1-vis.genruntimeconfig.cache
+C:\Users\pawsh\OneDrive\Рабочий стол\визуалка\lab1-vis\lab1-vis\obj\Debug\net8.0\ref\lab1-vis.dll
