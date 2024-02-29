@@ -1,0 +1,141 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:dc="clr-namespace:lab3_Visual"
+		mc:Ignorable="d" d:DesignWidth="350" d:DesignHeight="450"
+        x:Class="lab3_Visual.MainWindow"
+		x:DataType="dc:Calculator"
+        Title="lab3"
+		Width="350" Height="350"
+		Background="DimGray">
+	
+	<Design.DataContext>
+		<dc:Calculator/>
+	</Design.DataContext>
+
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+		</Grid.RowDefinitions>
+		<!--HelpText-->
+		<TextBlock Text="{Binding HelpText}" Foreground="Black" Grid.Row="3" Background="WhiteSmoke"/>
+
+		<!-- Поле для отображения введенных данных -->
+		<TextBlock Text="{Binding DisplayText}" Foreground="Black" Grid.Row="0" TextAlignment="Right" FontSize="24" Background="WhiteSmoke"/>
+
+		<!-- Кнопки калькулятора -->
+		<Grid Grid.Row="1">
+
+			<Grid.RowDefinitions>
+				<RowDefinition Height="*"/>
+				<RowDefinition Height="*"/>
+				<RowDefinition Height="*"/>
+				<RowDefinition Height="*"/>
+				<RowDefinition Height="*"/>
+			</Grid.RowDefinitions>
+
+			<Border Grid.Row="0">
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="*"/>
+					</Grid.ColumnDefinitions>
+
+					<Button Grid.Column="0" Content="sin" Command="{Binding ClickOperand}" CommandParameter="sin" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Gray" Foreground="White" FontSize="20"/>
+					<Button Grid.Column="1" Content="cos" Command="{Binding ClickOperand}" CommandParameter="cos" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Gray" Foreground="White" FontSize="20"/>
+					<Button Grid.Column="2" Content="tan" Command="{Binding ClickOperand}" CommandParameter="tan" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Gray" Foreground="White" FontSize="20"/>
+					<Button Grid.Column="3" Content="floor" Command="{Binding ClickOperand}" CommandParameter="floor" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Gray" Foreground="White" FontSize="15"/>
+					<Button Grid.Column="4" Content="ceil" Command="{Binding ClickOperand}" CommandParameter="ceil" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Gray" Foreground="White" FontSize="20"/>
+					<Button Grid.Column="5" Content="/" Command="{Binding ClickOperand}" CommandParameter="/" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="DarkKhaki" Foreground="White" FontSize="20"/>
+				</Grid>
+			</Border>
+
+			<Border Grid.Row="1">
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="*"/>
+					</Grid.ColumnDefinitions>
+
+					<Button Grid.Column="0" Content="7" Command="{Binding ClickNumber}" CommandParameter="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="DarkGray" Foreground="White" FontSize="20"/>
+					<Button Grid.Column="1" Content="8" Command="{Binding ClickNumber}" CommandParameter="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="DarkGray" Foreground="White" FontSize="20"/>
+					<Button Grid.Column="2" Content="9" Command="{Binding ClickNumber}" CommandParameter="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="DarkGray" Foreground="White" FontSize="20"/>
+					<Button Grid.Column="3" Content="lg" Command="{Binding ClickOperand}" CommandParameter="lg" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Gray" Foreground="White" FontSize="15" />
+					<Button Grid.Column="4" Content="ln" Command="{Binding ClickOperand}" CommandParameter="ln" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Gray" Foreground="White" FontSize="20" />
+					<Button Grid.Column="5" Content="*" Command="{Binding ClickOperand}" CommandParameter="*" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="DarkKhaki" Foreground="White" FontSize="20" />
+				</Grid>
+			</Border>
+
+			<Border Grid.Row="2">
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="*"/>
+					</Grid.ColumnDefinitions>
+
+					<Button Grid.Column="0" Content="4" Command="{Binding ClickNumber}" CommandParameter="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="DarkGray" Foreground="White" FontSize="20"/>
+					<Button Grid.Column="1" Content="5" Command="{Binding ClickNumber}" CommandParameter="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="DarkGray" Foreground="White" FontSize="20"/>
+					<Button Grid.Column="2" Content="6" Command="{Binding ClickNumber}" CommandParameter="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="DarkGray" Foreground="White" FontSize="20"/>
+					<Button Grid.Column="3" Content="n!" Command="{Binding ClickOperand}" CommandParameter="!" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Gray" Foreground="White" FontSize="15"/>
+					<Button Grid.Column="4" Content="x^y" Command="{Binding ClickOperand}" CommandParameter="^" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Gray" Foreground="White" FontSize="20"/>
+					<Button Grid.Column="5" Content="-" Command="{Binding ClickOperand}" CommandParameter="-" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="DarkKhaki" Foreground="White" FontSize="20"/>
+				</Grid>
+			</Border>
+
+			<Border Grid.Row="3">
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="*"/>
+					</Grid.ColumnDefinitions>
+
+					<Button Grid.Column="0" Content="1" Command="{Binding ClickNumber}" CommandParameter="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="DarkGray" Foreground="White" FontSize="20"/>
+					<Button Grid.Column="1" Content="2" Command="{Binding ClickNumber}" CommandParameter="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="DarkGray" Foreground="White" FontSize="20"/>
+					<Button Grid.Column="2" Content="3" Command="{Binding ClickNumber}" CommandParameter="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="DarkGray" Foreground="White" FontSize="20"/>
+					<Button Grid.Column="3" Content="mod" Command="{Binding ClickOperand}" CommandParameter="mod" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Gray" Foreground="White" FontSize="15"/>
+					<Button Grid.Column="4" Content="div" Command="{Binding ClickOperand}" CommandParameter="div" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Gray" Foreground="White" FontSize="20"/>
+					<Button Grid.Column="5" Content="+"  Command="{Binding ClickOperand}" CommandParameter="+" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="DarkKhaki" Foreground="White" FontSize="20"/>
+				</Grid>
+			</Border>
+
+			<Border Grid.Row="4">
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="*"/>
+					</Grid.ColumnDefinitions>
+
+					<Button Grid.Column="0" Content="0" Command="{Binding ClickNumber}" CommandParameter="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="DarkGray" Foreground="White" FontSize="20"/>
+					<TextBlock Grid.Column="1" Text="Удалять ответ?" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="DarkGray" Foreground="White" FontSize="10"/>
+					<Button Grid.Column="2" Content="{Binding DeleteResult}" Command="{Binding ClickToggleDeleteResult}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="DarkGray" Foreground="White" FontSize="20"/>
+					<Button Grid.Column="3" Content="del" Command="{Binding ClickDel}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Gray" Foreground="White" FontSize="20"/>
+					<Button Grid.Column="4" Content="C" Command="{Binding ClickClear}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Gray" Foreground="White" FontSize="20"/>
+					<Button Grid.Column="5" Content="=" Command="{Binding ClickSolve}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="DarkKhaki" Foreground="White" FontSize="20"/>
+				</Grid>
+			</Border>
+		</Grid>
+	</Grid>
+</Window>
