@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZDWa4Q2gVI5wJEY9o22JIcqtVw2oY5mgR09oYaGNDIGoDVC/P78XIq2AvKx6pk7qgU9rUNWADfFVOU9O2XTnNw==",
+  "dgSpecHash": "JppnXbm/7ZSvAmQFC2X+HgYVdDUJpwmO0TQlWAzZwCDyULSFVnlMr6jYk/eJJXMsOBDN/TBvB23CRmGGJY8/dw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\pawsh\\OneDrive\\Рабочий стол\\визуалка\\lab4\\lab4\\lab4.csproj",
+  "projectFilePath": "C:\\Users\\pawsh\\OneDrive\\Рабочий стол\\визуалка\\lab4\\lab4\\lab4\\lab4.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pawsh\\.nuget\\packages\\avalonia\\11.0.9\\avalonia.11.0.9.nupkg.sha512",
     "C:\\Users\\pawsh\\.nuget\\packages\\avalonia.angle.windows.natives\\2.1.0.2023020321\\avalonia.angle.windows.natives.2.1.0.2023020321.nupkg.sha512",

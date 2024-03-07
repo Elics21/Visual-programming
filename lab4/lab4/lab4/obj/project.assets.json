@@ -4702,11 +4702,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pawsh\\OneDrive\\Рабочий стол\\визуалка\\lab4\\lab4\\lab4.csproj",
+      "projectUniqueName": "C:\\Users\\pawsh\\OneDrive\\Рабочий стол\\визуалка\\lab4\\lab4\\lab4\\lab4.csproj",
       "projectName": "lab4",
-      "projectPath": "C:\\Users\\pawsh\\OneDrive\\Рабочий стол\\визуалка\\lab4\\lab4\\lab4.csproj",
+      "projectPath": "C:\\Users\\pawsh\\OneDrive\\Рабочий стол\\визуалка\\lab4\\lab4\\lab4\\lab4.csproj",
       "packagesPath": "C:\\Users\\pawsh\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pawsh\\OneDrive\\Рабочий стол\\визуалка\\lab4\\lab4\\obj\\",
+      "outputPath": "C:\\Users\\pawsh\\OneDrive\\Рабочий стол\\визуалка\\lab4\\lab4\\lab4\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\pawsh\\AppData\\Roaming\\NuGet\\NuGet.Config",

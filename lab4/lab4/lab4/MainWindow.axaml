@@ -13,17 +13,17 @@
 		<dc:Explorer/>
 	</Design.DataContext>
 
-	<StackPanel>
-		<Button Command="{Binding ClickBack}" Content="{Binding Text}"/>
-		<ListBox x:Name="myListBox" ItemsSource="{Binding Directorys}" SelectedItem="{Binding SelectedDirectory}">
-			<ListBox.ItemTemplate>
-				<DataTemplate>
-					<Border x:DataType="dc:Explorer">
-						<TextBlock Text="{Binding}" />
-					</Border>
-				</DataTemplate>
-			</ListBox.ItemTemplate>
-		</ListBox>
-		<ListBox ItemsSource="{Binding Files}"/>
-	</StackPanel>
+	<ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+		<StackPanel>
+			<ListBox ItemsSource="{Binding Items}" DoubleTapped="MyListBoxOnDoubleTapped">
+				<ListBox.ItemTemplate>
+					<DataTemplate>
+						<Border>
+							<TextBlock Text="{Binding Name}" />
+						</Border>
+					</DataTemplate>
+				</ListBox.ItemTemplate>
+			</ListBox>
+		</StackPanel>
+	</ScrollViewer>
 </Window>

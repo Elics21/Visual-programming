@@ -2,88 +2,126 @@ using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Linq;
-using System.Windows.Input;
-using Avalonia.Interactivity;
-using Avalonia.Controls;
-using System;
-using Avalonia.Input;
-using Avalonia;
+using System.Collections.ObjectModel;
+
 
 namespace lab4
 {
+    public interface IFileSystemExplorer
+    {
+        public string Name { get; set; }
+        public string Path { get; set; }
+        public string IconPath { get; set; }
+    }
+    public class ParentFolder : IFileSystemExplorer
+    {
+        public string Name { get; set; }
+        public string Path { get; set; }
+        public string IconPath { get; set; }
+        public ParentFolder()
+        {
+            Name = string.Empty;
+            Path = string.Empty;
+        }
+        public ParentFolder(string path, string name)
+        {
+            Name = name;
+            Path = path;
+        }
+    }
+    public class Folder : IFileSystemExplorer
+    {
+        public string Name { get; set; }
+        public string Path { get; set; }
+        public string IconPath { get; set; }
+        public Folder()
+        {
+            Name = string.Empty;
+            Path = string.Empty;
+        }
+        public Folder(string path, string name)
+        {
+            Name = name;
+            Path = path;
+        }
+    }
+    public class File : IFileSystemExplorer
+    {
+        public string Name { get; set; }
+        public string Path { get; set; }
+        public string IconPath { get; set; }
+        public File()
+        {
+            Name = string.Empty;
+            Path = string.Empty;
+        }
+        public File(string path, string name)
+        {
+            Name = name;
+            Path = path;
+        }
+    }
     public class Explorer : INotifyPropertyChanged
     {
-        private string _text;
+        public ObservableCollection<IFileSystemExplorer> Items { get { return _items; } set { OnPropertyChanged(); } }
+        ObservableCollection<IFileSystemExplorer> _items = new ObservableCollection<IFileSystemExplorer>();
         private string _currentDirectory;
-        private string[] _files;
-        private string[] _directorys;
-
-        private string _selectedDirectory;
-        public string SelectedDirectory
+        public string CurrentDirectory
         {
-            get { return _selectedDirectory; }
+            get { return _currentDirectory; }
             set
             {
-               if (_selectedDirectory != value) 
-               { 
-                    _selectedDirectory = value;
-                    ClickDirectory(value);
+                if (_currentDirectory != value)
+                {
+                    _currentDirectory = value;
                     OnPropertyChanged();
-               }
+                    LoadItems();
+                }
             }
-        }
-
-
-        public string Text {
-            get {
-                return _text; 
-            } 
-            set {
-                _ = SetField(ref _text, value); 
-            } 
-        }
-        public string[] Files
-        {
-            get { return _files; }
-            set { _ = SetField(ref _files, value); }
-        }
-        public string[] Directorys
-        {
-            get { return _directorys; }
-            set { _ = SetField(ref _directorys, value); }
         }
 
         public Explorer() {
-            _currentDirectory = System.IO.Directory.GetCurrentDirectory();
-            Text = _currentDirectory;
-            string[] directoriesPaths = Directory.GetDirectories(_currentDirectory);
-            string[] filePaths = Directory.GetFiles(_currentDirectory);
-            Directorys = directoriesPaths.Select(filePath => Path.GetFileName(filePath)).ToArray();
-            Files = filePaths.Select(filePath => Path.GetFileName(filePath)).ToArray();
-
+            _currentDirectory = "C:\\test";
+            LoadItems();
         }
 
-        public void ClickBack()
+        private void LoadItems()
         {
-            DirectoryInfo parentDirectoryInfo = Directory.GetParent(_currentDirectory);
-            if (parentDirectoryInfo != null)
+            Items.Clear();
+            FileSystemInfo[] fileSystemInfos = new DirectoryInfo(_currentDirectory).GetFileSystemInfos();
+            string parentDirectory = Path.GetDirectoryName(_currentDirectory);
+            if(parentDirectory != null)
             {
-                string parentDirectory = parentDirectoryInfo.FullName;
-                _currentDirectory = parentDirectory;
-                Text = _currentDirectory;
-                Directorys = Directory.GetDirectories(_currentDirectory).Select(filePath => Path.GetFileName(filePath)).ToArray();
-                Files = Directory.GetFiles(_currentDirectory).Select(filePath => Path.GetFileName(filePath)).ToArray();
+                ParentFolder parentFolder = new ParentFolder(parentDirectory, "...");
+                _items.Add(parentFolder);
             }
+            foreach (var info in fileSystemInfos)
+            {
+                if (info is FileInfo fileInfo)
+                {
+                    File file = new File(fileInfo.DirectoryName, fileInfo.Name);
+                    _items.Add(file);
+                }
+                else if (info is DirectoryInfo directoryInfo)
+                {
+                    Folder folder = new Folder(directoryInfo.FullName, directoryInfo.Name);
+                    _items.Add(folder);
+                }
+            }
+            /*foreach (var driveInfo in DriveInfo.GetDrives())
+            {
+                if ((driveInfo.RootDirectory.FullName == _currentDirectory) && (parentDirectory == null))
+                {
+                    items.Add(new DirectoryInfo(driveInfo.Name));
+                }
+            }*/
+            //Text = new DirectoryInfo(_currentDirectory);
+
         }
-
-
         public void ClickDirectory(string path)
         {
-            _currentDirectory = _currentDirectory + "\\" + path;
-            Text = _currentDirectory;
-            Directorys = Directory.GetDirectories(_currentDirectory).Select(filePath => Path.GetFileName(filePath)).ToArray();
-            Files = Directory.GetFiles(_currentDirectory).Select(filePath => Path.GetFileName(filePath)).ToArray();
+            _currentDirectory = path;
+            LoadItems();
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
