@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Collections.ObjectModel;
-
+using Avalonia.Media.Imaging;
+using Avalonia.Platform;
+using System;
 
 namespace lab4
 {
@@ -12,21 +14,26 @@ namespace lab4
         public string Name { get; set; }
         public string Path { get; set; }
         public string IconPath { get; set; }
+        public Bitmap? IconBit { get => new Bitmap(AssetLoader.Open(new Uri(IconPath))); }
     }
     public class ParentFolder : IFileSystemExplorer
     {
         public string Name { get; set; }
         public string Path { get; set; }
         public string IconPath { get; set; }
+        public Bitmap? IconBit { get => new Bitmap(AssetLoader.Open(new Uri(IconPath))); }
+
         public ParentFolder()
         {
             Name = string.Empty;
             Path = string.Empty;
+            IconPath = "avares://lab4/icons/parent.png";
         }
         public ParentFolder(string path, string name)
         {
             Name = name;
             Path = path;
+            IconPath = "avares://lab4/icons/parent.png";
         }
     }
     public class Folder : IFileSystemExplorer
@@ -34,15 +41,19 @@ namespace lab4
         public string Name { get; set; }
         public string Path { get; set; }
         public string IconPath { get; set; }
+        public Bitmap? IconBit { get => new Bitmap(AssetLoader.Open(new Uri(IconPath))); }
+
         public Folder()
         {
             Name = string.Empty;
             Path = string.Empty;
+            IconPath = "avares://lab4/icons/folder.png";
         }
         public Folder(string path, string name)
         {
             Name = name;
             Path = path;
+            IconPath = "avares://lab4/icons/folder.png";
         }
     }
     public class File : IFileSystemExplorer
@@ -50,15 +61,39 @@ namespace lab4
         public string Name { get; set; }
         public string Path { get; set; }
         public string IconPath { get; set; }
+        public Bitmap? IconBit { get => new Bitmap(AssetLoader.Open(new Uri(IconPath))); }
+
         public File()
         {
             Name = string.Empty;
             Path = string.Empty;
+            IconPath = "avares://lab4/icons/file.png";
         }
         public File(string path, string name)
         {
             Name = name;
             Path = path;
+            IconPath = "avares://lab4/icons/file.png";
+        }
+    }
+    public class Disk : IFileSystemExplorer
+    {
+        public string Name { get; set; }
+        public string Path { get; set; }
+        public string IconPath { get; set; }
+        public Bitmap? IconBit { get => new Bitmap(AssetLoader.Open(new Uri(IconPath))); }
+
+        public Disk()
+        {
+            Name = string.Empty;
+            Path = string.Empty;
+            IconPath = "avares://lab4/icons/driver.png";
+        }
+        public Disk(string path, string name)
+        {
+            Name = name;
+            Path = path;
+            IconPath = "avares://lab4/icons/driver.png";
         }
     }
     public class Explorer : INotifyPropertyChanged
@@ -81,40 +116,49 @@ namespace lab4
         }
 
         public Explorer() {
-            _currentDirectory = "C:\\test";
+            _currentDirectory = "C:\\";
             LoadItems();
         }
 
         private void LoadItems()
         {
             Items.Clear();
-            FileSystemInfo[] fileSystemInfos = new DirectoryInfo(_currentDirectory).GetFileSystemInfos();
-            string parentDirectory = Path.GetDirectoryName(_currentDirectory);
-            if(parentDirectory != null)
+            if(_currentDirectory == "\\")
             {
-                ParentFolder parentFolder = new ParentFolder(parentDirectory, "...");
-                _items.Add(parentFolder);
-            }
-            foreach (var info in fileSystemInfos)
-            {
-                if (info is FileInfo fileInfo)
+                foreach (var driveInfo in DriveInfo.GetDrives())
                 {
-                    File file = new File(fileInfo.DirectoryName, fileInfo.Name);
-                    _items.Add(file);
-                }
-                else if (info is DirectoryInfo directoryInfo)
-                {
-                    Folder folder = new Folder(directoryInfo.FullName, directoryInfo.Name);
-                    _items.Add(folder);
+                    Disk drive = new Disk(driveInfo.Name, driveInfo.Name);
+                    _items.Add(drive);
                 }
             }
-            /*foreach (var driveInfo in DriveInfo.GetDrives())
+            else
             {
-                if ((driveInfo.RootDirectory.FullName == _currentDirectory) && (parentDirectory == null))
+                FileSystemInfo[] fileSystemInfos = new DirectoryInfo(_currentDirectory).GetFileSystemInfos();
+                string parentDirectory = Path.GetDirectoryName(_currentDirectory);
+                if (parentDirectory != null)
                 {
-                    items.Add(new DirectoryInfo(driveInfo.Name));
+                    ParentFolder parentFolder = new ParentFolder(parentDirectory, "...");
+                    _items.Add(parentFolder);
                 }
-            }*/
+                else
+                {
+                    ParentFolder parentFolder = new ParentFolder("\\", "...");
+                    _items.Add(parentFolder);
+                }
+                foreach (var info in fileSystemInfos)
+                {
+                    if (info is FileInfo fileInfo)
+                    {
+                        File file = new File(fileInfo.DirectoryName, fileInfo.Name);
+                        _items.Add(file);
+                    }
+                    else if (info is DirectoryInfo directoryInfo)
+                    {
+                        Folder folder = new Folder(directoryInfo.FullName, directoryInfo.Name);
+                        _items.Add(folder);
+                    }
+                }
+            }
             //Text = new DirectoryInfo(_currentDirectory);
 
         }

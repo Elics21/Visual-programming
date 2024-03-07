@@ -13,12 +13,10 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = lab4
-build_property.ProjectDir = C:\Users\pawsh\OneDrive\Рабочий стол\визуалка\lab4\lab4\lab4\
-build_property.EnableComHosting = 
-build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.ProjectDir = C:\Users\pawsh\OneDrive\Рабочий стол\Visual-programming\lab4\lab4\lab4\
 
-[C:/Users/pawsh/OneDrive/Рабочий стол/визуалка/lab4/lab4/lab4/App.axaml]
+[C:/Users/pawsh/OneDrive/Рабочий стол/Visual-programming/lab4/lab4/lab4/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[C:/Users/pawsh/OneDrive/Рабочий стол/визуалка/lab4/lab4/lab4/MainWindow.axaml]
+[C:/Users/pawsh/OneDrive/Рабочий стол/Visual-programming/lab4/lab4/lab4/MainWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml

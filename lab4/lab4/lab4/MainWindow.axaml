@@ -7,20 +7,23 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="lab4.MainWindow"
         Title="lab4"
-		x:DataType="dc:Explorer">
+		x:DataType="dc:Explorer"
+		Icon="/icons/folder.png">
 
 	<Design.DataContext>
 		<dc:Explorer/>
 	</Design.DataContext>
+
 
 	<ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
 		<StackPanel>
 			<ListBox ItemsSource="{Binding Items}" DoubleTapped="MyListBoxOnDoubleTapped">
 				<ListBox.ItemTemplate>
 					<DataTemplate>
-						<Border>
+						<StackPanel Orientation="Horizontal">
+							<Image Source="{Binding IconBit}" Height="20" Width="20" Margin="0 0 5 0"/>
 							<TextBlock Text="{Binding Name}" />
-						</Border>
+						</StackPanel>
 					</DataTemplate>
 				</ListBox.ItemTemplate>
 			</ListBox>

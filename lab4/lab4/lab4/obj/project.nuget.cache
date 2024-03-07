@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JppnXbm/7ZSvAmQFC2X+HgYVdDUJpwmO0TQlWAzZwCDyULSFVnlMr6jYk/eJJXMsOBDN/TBvB23CRmGGJY8/dw==",
+  "dgSpecHash": "bFOD3Rqh1WJ19QJ0Y8g3fTausFn8MRybgAtBlQ1T+CjPsBb5mxJEODKwoRoyxUBnG+AkvkaDmOSurXpfK4imfg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\pawsh\\OneDrive\\Рабочий стол\\визуалка\\lab4\\lab4\\lab4\\lab4.csproj",
+  "projectFilePath": "C:\\Users\\pawsh\\OneDrive\\Рабочий стол\\Visual-programming\\lab4\\lab4\\lab4\\lab4.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pawsh\\.nuget\\packages\\avalonia\\11.0.9\\avalonia.11.0.9.nupkg.sha512",
     "C:\\Users\\pawsh\\.nuget\\packages\\avalonia.angle.windows.natives\\2.1.0.2023020321\\avalonia.angle.windows.natives.2.1.0.2023020321.nupkg.sha512",
@@ -81,11 +81,7 @@
     "C:\\Users\\pawsh\\.nuget\\packages\\system.threading\\4.3.0\\system.threading.4.3.0.nupkg.sha512",
     "C:\\Users\\pawsh\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
     "C:\\Users\\pawsh\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
-    "C:\\Users\\pawsh\\.nuget\\packages\\tmds.dbus.protocol\\0.15.0\\tmds.dbus.protocol.0.15.0.nupkg.sha512",
-    "C:\\Users\\pawsh\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.15\\microsoft.windowsdesktop.app.ref.7.0.15.nupkg.sha512",
-    "C:\\Users\\pawsh\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.15\\microsoft.netcore.app.ref.7.0.15.nupkg.sha512",
-    "C:\\Users\\pawsh\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.15\\microsoft.aspnetcore.app.ref.7.0.15.nupkg.sha512",
-    "C:\\Users\\pawsh\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\7.0.15\\microsoft.netcore.app.host.win-x64.7.0.15.nupkg.sha512"
+    "C:\\Users\\pawsh\\.nuget\\packages\\tmds.dbus.protocol\\0.15.0\\tmds.dbus.protocol.0.15.0.nupkg.sha512"
   ],
   "logs": []
 }
