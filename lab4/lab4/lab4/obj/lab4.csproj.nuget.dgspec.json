@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pawsh\\OneDrive\\Рабочий стол\\Visual-programming\\lab4\\lab4\\lab4\\lab4.csproj": {}
+    "C:\\Users\\pawsh\\OneDrive\\Документы\\GitHub\\Visual-programming\\lab4\\lab4\\lab4\\lab4.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pawsh\\OneDrive\\Рабочий стол\\Visual-programming\\lab4\\lab4\\lab4\\lab4.csproj": {
+    "C:\\Users\\pawsh\\OneDrive\\Документы\\GitHub\\Visual-programming\\lab4\\lab4\\lab4\\lab4.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pawsh\\OneDrive\\Рабочий стол\\Visual-programming\\lab4\\lab4\\lab4\\lab4.csproj",
+        "projectUniqueName": "C:\\Users\\pawsh\\OneDrive\\Документы\\GitHub\\Visual-programming\\lab4\\lab4\\lab4\\lab4.csproj",
         "projectName": "lab4",
-        "projectPath": "C:\\Users\\pawsh\\OneDrive\\Рабочий стол\\Visual-programming\\lab4\\lab4\\lab4\\lab4.csproj",
+        "projectPath": "C:\\Users\\pawsh\\OneDrive\\Документы\\GitHub\\Visual-programming\\lab4\\lab4\\lab4\\lab4.csproj",
         "packagesPath": "C:\\Users\\pawsh\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pawsh\\OneDrive\\Рабочий стол\\Visual-programming\\lab4\\lab4\\lab4\\obj\\",
+        "outputPath": "C:\\Users\\pawsh\\OneDrive\\Документы\\GitHub\\Visual-programming\\lab4\\lab4\\lab4\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
           "C:\\Users\\pawsh\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -39,6 +34,9 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "default"
         }
       },
       "frameworks": {
@@ -89,12 +87,30 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[7.0.15, 7.0.15]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[7.0.15, 7.0.15]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[7.0.15, 7.0.15]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[7.0.15, 7.0.15]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

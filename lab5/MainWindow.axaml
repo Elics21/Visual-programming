@@ -1,0 +1,48 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:controls="clr-namespace:Avalonia.Controls;assembly=Avalonia.Controls"
+		xmlns:dc="clr-namespace:lab5_vis"
+        xmlns:local="clr-namespace:lab5_vis"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="lab5_vis.MainWindow"
+        Title="lab5"
+        x:DataType="dc:Explorer"
+        Icon="/icons/folder.png">
+
+	<Design.DataContext>
+		<dc:Explorer/>
+	</Design.DataContext>
+
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="1*"/>
+			<ColumnDefinition Width="0.01*"/>
+			<ColumnDefinition Width="2*"/>
+		</Grid.ColumnDefinitions>
+	
+
+		<ScrollViewer Grid.Column="0" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+			<StackPanel>
+				<ListBox ItemsSource="{Binding Items}" DoubleTapped="MyListBoxOnDoubleTapped" Tapped="MyListBoxOnTapped">
+					<ListBox.ItemTemplate>
+						<DataTemplate>
+							<StackPanel Orientation="Horizontal">
+								<controls:ToolTip.Tip>
+									<ToolTip Content="{Binding Path}"/>
+								</controls:ToolTip.Tip>
+								<Image Source="{Binding IconBit}" Height="20" Width="20" Margin="0 0 5 0"/>
+								<TextBlock Text="{Binding Name}" />
+							</StackPanel>
+						</DataTemplate>
+					</ListBox.ItemTemplate>
+				</ListBox>
+			</StackPanel>
+		</ScrollViewer>
+		
+		<GridSplitter Grid.Column="1" Width="" Background="Gray"/>
+
+		<Image Grid.Column="2" Source="{Binding ImageBit}"/>
+	</Grid>
+</Window>
