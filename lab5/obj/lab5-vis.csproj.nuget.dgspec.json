@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pawsh\\OneDrive\\Рабочий стол\\визуалка\\lab5-vis\\lab5-vis.csproj": {}
+    "C:\\Users\\pawsh\\OneDrive\\Документы\\GitHub\\Visual-programming\\lab5\\lab5-vis.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pawsh\\OneDrive\\Рабочий стол\\визуалка\\lab5-vis\\lab5-vis.csproj": {
+    "C:\\Users\\pawsh\\OneDrive\\Документы\\GitHub\\Visual-programming\\lab5\\lab5-vis.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pawsh\\OneDrive\\Рабочий стол\\визуалка\\lab5-vis\\lab5-vis.csproj",
+        "projectUniqueName": "C:\\Users\\pawsh\\OneDrive\\Документы\\GitHub\\Visual-programming\\lab5\\lab5-vis.csproj",
         "projectName": "lab5-vis",
-        "projectPath": "C:\\Users\\pawsh\\OneDrive\\Рабочий стол\\визуалка\\lab5-vis\\lab5-vis.csproj",
+        "projectPath": "C:\\Users\\pawsh\\OneDrive\\Документы\\GitHub\\Visual-programming\\lab5\\lab5-vis.csproj",
         "packagesPath": "C:\\Users\\pawsh\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pawsh\\OneDrive\\Рабочий стол\\визуалка\\lab5-vis\\obj\\",
+        "outputPath": "C:\\Users\\pawsh\\OneDrive\\Документы\\GitHub\\Visual-programming\\lab5\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\pawsh\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -8,6 +8,7 @@ using Avalonia.Platform;
 using System;
 using System.Reflection;
 using static System.Net.Mime.MediaTypeNames;
+using System.Threading.Tasks;
 
 namespace lab5_vis
 {
@@ -122,7 +123,7 @@ namespace lab5_vis
     }
 
 
-    public class Explorer : INotifyPropertyChanged
+    public class  Explorer : INotifyPropertyChanged
     {
         public ObservableCollection<IFileSystemExplorer> Items { get { return _items; } set { OnPropertyChanged(); } }
         ObservableCollection<IFileSystemExplorer> _items = new ObservableCollection<IFileSystemExplorer>();
@@ -154,12 +155,14 @@ namespace lab5_vis
                 }
             }
         }
-        public Explorer() {
+
+        public Explorer()
+        {
             _currentDirectory = "C:\\test";
             LoadItems();
         }
 
-        private void LoadItems()
+        private async void LoadItems()
         {
             Items.Clear();
             if(_currentDirectory == "\\")
@@ -172,42 +175,50 @@ namespace lab5_vis
             }
             else
             {
-                FileSystemInfo[] fileSystemInfos = new DirectoryInfo(_currentDirectory).GetFileSystemInfos();
-                string parentDirectory = Path.GetDirectoryName(_currentDirectory);
-                if (parentDirectory != null)
-                {
-                    ParentFolder parentFolder = new ParentFolder(parentDirectory, "...");
-                    _items.Add(parentFolder);
-                }
-                else
-                {
-                    ParentFolder parentFolder = new ParentFolder("\\", "...");
-                    _items.Add(parentFolder);
-                }
-                foreach (var info in fileSystemInfos)
-                {
-                    if (info is FileInfo fileInfo)
-                    {
-                        if(IsImage(fileInfo.FullName))
-                        {
-                            ImageExplorer imageExplorer = new ImageExplorer(fileInfo.FullName, fileInfo.Name);
-                            _items.Add(imageExplorer);
-                        }
-                        /*else
-                        {
-                            File file = new File(fileInfo.FullName, fileInfo.Name);
-                            _items.Add(file);
-                        }*/
-                    }
-                    else if (info is DirectoryInfo directoryInfo)
-                    {
-                        Folder folder = new Folder(directoryInfo.FullName, directoryInfo.Name);
-                        _items.Add(folder);
-                    }
-                }
+                await LoadDirectoryContentsAsync(_currentDirectory);
             }
 
         }
+        private async Task LoadDirectoryContentsAsync(string directory)
+        {
+            string parentDirectory = Path.GetDirectoryName(directory);
+            if (parentDirectory != null)
+            {
+                ParentFolder parentFolder = new ParentFolder(parentDirectory, "...");
+                _items.Add(parentFolder);
+            }
+            else
+            {
+                ParentFolder parentFolder = new ParentFolder("\\", "...");
+                _items.Add(parentFolder);
+            }
+
+            await Task.Delay(1000); // Задержка в 1 секунду
+            var fileSystemInfos = await Task.Run(() => new DirectoryInfo(directory).GetFileSystemInfos());
+
+            foreach (var info in fileSystemInfos)
+            {
+                if (info is FileInfo fileInfo)
+                {
+                    if (IsImage(fileInfo.FullName))
+                    {
+                        ImageExplorer imageExplorer = new ImageExplorer(fileInfo.FullName, fileInfo.Name);
+                        _items.Add(imageExplorer);
+                    }
+                    else
+                    {
+                        File file = new File(fileInfo.FullName, fileInfo.Name);
+                        _items.Add(file);
+                    }
+                }
+                else if (info is DirectoryInfo directoryInfo)
+                {
+                    Folder folder = new Folder(directoryInfo.FullName, directoryInfo.Name);
+                    _items.Add(folder);
+                }
+            }
+        }
+
         public void LoadImage(string path)
         {
             if (IsImage(path))
