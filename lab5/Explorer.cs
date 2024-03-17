@@ -9,6 +9,8 @@ using System;
 using System.Reflection;
 using static System.Net.Mime.MediaTypeNames;
 using System.Threading.Tasks;
+using Avalonia.Threading;
+using System.Threading;
 
 namespace lab5_vis
 {
@@ -156,10 +158,18 @@ namespace lab5_vis
             }
         }
 
+        private FileSystemWatcher _fileSystemWatcher;
         public Explorer()
         {
             _currentDirectory = "C:\\test";
             LoadItems();
+
+            _fileSystemWatcher = new FileSystemWatcher(_currentDirectory);
+            _fileSystemWatcher.IncludeSubdirectories = true; //отслеживаем изменения в подкаталогах
+            _fileSystemWatcher.Created += FileSystemWatcher_Changed; //отслеживаем содание
+            _fileSystemWatcher.Deleted += FileSystemWatcher_Changed; //отслеживаем удаление
+            _fileSystemWatcher.Renamed += FileSystemWatcher_Changed; //отслеживаем переиминовку
+            _fileSystemWatcher.EnableRaisingEvents = true; //генерация событий
         }
 
         private async void LoadItems()
@@ -219,6 +229,22 @@ namespace lab5_vis
             }
         }
 
+        private void FileSystemWatcher_Changed(object sender, FileSystemEventArgs e)
+        {
+            //запускаем отдельный поток
+            Task.Run(() =>
+            {
+                //задержка у 0.3с
+                Thread.Sleep(300);
+
+                //перезагружаем элементы
+                Dispatcher.UIThread.InvokeAsync(() =>
+                {
+                    LoadItems();
+                });
+            });
+        }
+
         public void LoadImage(string path)
         {
             if (IsImage(path))
@@ -248,6 +274,16 @@ namespace lab5_vis
             }
             else { return false; }
         }
+
+        //осовобождение ресурсов
+        public void Dispose()
+        {
+            _fileSystemWatcher.Dispose();
+        }
+
+
+
+
 
         public event PropertyChangedEventHandler? PropertyChanged;
 

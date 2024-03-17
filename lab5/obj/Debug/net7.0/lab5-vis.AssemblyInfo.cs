@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("lab5-vis")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2845c79864a384ad8722c1f063d1e57a05d7c718")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fbe1590e88d14d743a15274f6ff773eff7ce8029")]
 [assembly: System.Reflection.AssemblyProductAttribute("lab5-vis")]
 [assembly: System.Reflection.AssemblyTitleAttribute("lab5-vis")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
