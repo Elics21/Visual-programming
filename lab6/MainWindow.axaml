@@ -1,0 +1,62 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lab6"
+        mc:Ignorable="d"
+        x:DataType="local:Weather"
+        x:Class="lab6.MainWindow"
+        Title="lab6" Background="#6eb8dd" Width="350" Height="300">
+	
+	<Grid Margin="15">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+		</Grid.RowDefinitions>
+		<TextBlock Text="{Binding Data}" Grid.Row="0" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+		<StackPanel Grid.Row="1" Background="" Margin="0 35 0 0">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition/>
+				</Grid.ColumnDefinitions>
+				<TextBlock Text="{Binding Sity}" Foreground="White" FontSize="22" Grid.Column="0" />
+				<TextBlock Text="{Binding Temperature}" Foreground="White" FontSize="50" Grid.Column="0" Margin="0 30 0 0"/>
+				<Image Source="/icons/rain_cloud.png" Grid.Column="1" Width="96" Height="96"/>
+			</Grid>
+		</StackPanel>
+		<StackPanel Grid.Row="2" Margin="0 30 0 0">
+			<Grid >
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition />
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition />
+					<RowDefinition />
+				</Grid.RowDefinitions>
+				<Border>
+
+				</Border>
+				<StackPanel Grid.Column="0" Grid.Row="0"  Margin="0 0 0 20">
+					<TextBlock Text="Влажность воздуха" Foreground="White" FontSize="13" TextWrapping="Wrap" />
+					<TextBlock Text="{Binding Humidity}"  Foreground="White" FontSize="14" />
+				</StackPanel>
+				<StackPanel Grid.Column="0" Grid.Row="1" >
+					<TextBlock Text="Скорость ветра" Foreground="White" FontSize="13" TextWrapping="Wrap" />
+					<TextBlock Text="{Binding Wind}" Foreground="White" FontSize="14" />
+				</StackPanel>
+				<StackPanel Grid.Column="1" Grid.Row="0" >
+					<TextBlock Text="Атмосферное давление" Foreground="White" FontSize="13" TextWrapping="Wrap"/>
+					<TextBlock Text="{Binding Pressure}" Foreground="White" FontSize="14" />
+				</StackPanel>
+				<StackPanel Grid.Column="1" Grid.Row="1" >
+					<TextBlock Text="Уровень моря" Foreground="White" FontSize="13"/>
+					<TextBlock Text="{Binding SeaLevel}" Foreground="White"  FontSize="14"/>
+				</StackPanel>
+			</Grid>
+		</StackPanel>
+	</Grid>
+</Window>
