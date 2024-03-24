@@ -32,6 +32,12 @@ class Program
         collection.Add("TOP");
         collection.RemoveAt(2);
         collection[0] = "Hi";
+        Console.WriteLine();
+        for (int i = 0; i < collection.Count; i++)
+        {
+            Console.WriteLine($"index: {i}, {collection[i]}");
+        }
+
     }
 
     static void LogCollectionChanges(NotifyCollectionChangedEventArgs args)
